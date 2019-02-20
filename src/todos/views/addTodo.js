@@ -6,15 +6,24 @@ import {addTodo} from '../actions.js';
 
 class AddTodo extends Component{
 
+  constructor(props){
+    super(props)
+
+    /**组件的局部变量存放在state中 */
+    this.state = {
+      value:''
+    }
+  }
+
   onSubmit = (event)=>{
     event.preventDefault();
     
-    const input = this.input;
-    if(!input.value.trim()){
+    const inputValue = this.state.value;
+    if(!inputValue.trim()){
       return;
     }
-    this.props.onAdd(input.value);
-    input.value='';
+    this.props.onAdd(inputValue);
+    this.setState({value:''});
   }
 //ref属性可以设置为一个回调函数
 //组件被挂载后，回调函数被立即执行，回调函数的参数为该组件的具体实例。
@@ -22,11 +31,17 @@ class AddTodo extends Component{
     this.input = node;
   }
 
+  onInputChange = (event) =>{
+    this.setState({
+      value: event.target.value
+    })
+  }
+
   render(){
     return (
       <div className="add-todo">
         <form onSubmit={this.onSubmit}>
-          <input className="new-todo" placeholder="add one new to-do" ref={this.refInput}/>
+          <input className="new-todo" onChange={this.onInputChange} value={this.state.value}/>
           <button className="add-btn" type="submit">add</button>
         </form>
       </div>

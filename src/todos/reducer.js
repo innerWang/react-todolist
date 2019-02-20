@@ -16,7 +16,6 @@ export default (state=[],action)=>{
     }
     case ActionTypes.TOGGLE_TODO:{
       return state.map((item)=>{
-        console.log(item,action.id);
         if(item.id === action.id){
           return {...item,completed:!item.completed};
         }else{
