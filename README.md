@@ -1,68 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 一个简易的todo-list
 
-## Available Scripts
+· 包含组件todos(主要用于添加条目以及列表显示、状态取反、删除条目)以及filter(主要用于设置过滤器)
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+##### Tips
+· 各组件有自己的reducer，可使用combineReducers生成用于createStore的reducer
+· 可使用React的ref功能访问DOM元素(注意：非虚拟DOM)，具体为：当一个包含ref属性的组件完成装载过程时，会检查ref属性是否是一个函数，若是，则会调用这个函数，参数就是这个组件代表的DOM元素。但是直接访问DOM元素容易引起失控，可使用状态绑定的方法来获取元素的值
+· React的props.children可以访问当前组件包裹住的子组件
+· 对于动态数量的子组件，每个子组件都必须带上一个可以标示子组件的key属性，key的值唯一
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+##### 开发辅助工具（本demo暂未使用）
+· Chrome扩展包
+  1. React DevTools 可检视React组件的树形结构
+  2. Redux DevTools 可检视Redux数据流，可将Store状态跳跃到任何一个历史状态
+  3. React Perf 可以发现React组件渲染的性能问题
+· redux-immutable-state-invariant 辅助包
+  · 该包提供了一个Redux中间件，可让Redux在每次派发动作之后做一个检查，若reducer修改了参数state,则会报警提示。
+·
